@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="MorseDeCoder.View.MorseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="200" d:DesignWidth="300"
+             >  <!--xmlns:local="clr-namespace:MorseDeCoder.View"
+                    xmlns:data = "clr-namespace:MorseDeCoder.Model"-->
+    <Grid>
+        <ItemsControl ItemsSource = "{Binding Path = Data}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBox Name="LatinTxt" Text = "{Binding Path = Latin, Mode=TwoWay}" 
+                        FontSize="16" FontWeight="SemiBold"
+                        HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                        TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="False"/>
+                        <!--Click="BtnConvert_Click"-->
+                        <Button Name="Convert" FontSize="18" FontWeight="Bold">Convert</Button>
+                        <!--UpdateSourceTrigger=Explicit,-->
+                        <TextBox Name="MorseTxt" Text = "{Binding Path = Morse, Mode = TwoWay}"  
+                         FontSize="18" FontWeight="SemiBold"
+                        HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                        TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="False"
+                                 PreviewTextInput="MorseValidationTextBox"/>
+
+                        <TextBlock FontSize="24" TextAlignment="Center">Morse Code</TextBlock>
+                        <TextBlock FontSize="14" TextAlignment="Center" FontStyle="Italic">
+                            Note: When writing in Morse, separate
+                        letters with 2 spaces and words with 4 spaces for better readability.</TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <!--<ItemsControl ItemsSource = "{Binding Path = Data}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel>
+                        <TextBox Name="TmpTxt" Text = "{Binding Path = Latin, UpdateSourceTrigger=Explicit, Mode=TwoWay}" 
+                        FontSize="16" FontWeight="SemiBold"
+                        HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                        TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="False"/>
+                        <Button VerticalAlignment="Bottom"  Name="BtnConvert" Click="BtnConvert_Click" FontSize="18" FontWeight="Bold" >BtnConvert</Button>
+                    </DockPanel>
+                    --><!--DataContext="MorseDeCoder.Model.MorseModel"--><!--
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>-->
+    </Grid>
+</UserControl>
